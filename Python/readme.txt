@@ -7,6 +7,8 @@ Notes...
 3. Now, make a list of the .fits files and call that list_of_fits.txt
    ls *.fits > list_of_fits.txt
 4. Now you can run kappa_vals.py to make a bunch of KappasByCenter
+
+   -> make sure to change indir, depending on which plane number you're doing
    In the KappasByCenter folder, the text files are numbered as follows:
    kappasij_mn.txt, where:
       i - column number on 4x4 degree field, going from left to right, 0 to 3
@@ -37,4 +39,5 @@ Notes...
 
       - make sure you change the kappa_dir path to match whichever plane number you have
 
-6. Yay you're done!
+6. Yay you're done! Delete the fits files created in (2.) to save space.
+   rm GGL*.fits
