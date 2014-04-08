@@ -105,7 +105,7 @@ def write_regfile(x,y,outfile,radius=25,color='red',shape='circle'):
    print 'Wrote coordinate to regions file: %s' % outfile
    print ''
 
-def choose_gals(infile,sgclass_max=1.1,fwhm_min=0.13,mag_min=18.5,ellip_min=0.12,arcsec_per_px=0.05,mag_max=24.5):
+def choose_gals(infile,sgclass_max=1.1,fwhm_min=0.175,mag_min=18.5,ellip_min=0.12,arcsec_per_px=0.05,mag_max=24.5):
 
    """
    This function calls the read_catalog function, chooses the galaxies

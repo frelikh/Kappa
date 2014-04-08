@@ -24,7 +24,7 @@ else:
 
 """ Read in the binary kappa names (which are strings of maximum length 11) """
 
-indir = '/nfs/virgo-home/renata/gallifrey_2/Simulations/Kappa_maps/Plane25'
+indir = '/nfs/virgo-home/renata/gallifrey_2/Simulations/Kappa_maps/Plane35'
 
 lensroot = n.loadtxt(indir+'/list_of_fits.txt',dtype='S65')
 nlens = lensroot.size

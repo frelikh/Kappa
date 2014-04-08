@@ -21,7 +21,8 @@ else:
    sys.exit(1)
 
 """ Read in the lens root names (which are strings of maximum length 11) """
-lensroot = n.loadtxt('lenses_root.list',dtype='S11')
+indir = '/nfs/virgo-home/renata/Data1/ACS/'
+lensroot = n.loadtxt(indir+'lenses_root.list',dtype='S11')
 nlens = lensroot.size
 
 """ 
@@ -34,7 +35,7 @@ maximum_mag = input('What is the maximum magnitude?')
 
 """ Loop over the files in the input list """
 for i in range(nlens):
-   catname = 'Cat_lenses/%s_F814W.cat' % lensroot[i]
+   catname = '/nfs/virgo-home/renata/Data1/ACS/Cat_lenses/%s_F814W.cat' % lensroot[i]
 
    data = n.loadtxt(catname)
    dist = data[:,41]
@@ -46,8 +47,8 @@ for i in range(nlens):
 
    # mask = (sgclass<0.5) & (fwhm_arcsec>0.13) & (mag>19) & (ellip>0.12)
 
-   mask1 = (dist<45) & (dist>10) & (sgclass<1.1) & (fwhm_arcsec>0.13) & (mag>=19) & (mag <= maximum_mag) & (ellip>0.12)
-   mask2 = (dist<10) & (dist>2.5) & (sgclass<1.1) & (fwhm_arcsec>0.13) & (mag>19) & (mag <= maximum_mag) & (ellip>0.12)
+   mask1 = (dist<45) & (dist>10) & (sgclass<1.1) & (fwhm_arcsec>0.175) & (mag>=18.5) & (mag <= maximum_mag) & (ellip>0.12)
+   mask2 = (dist<10) & (dist>2.5) & (sgclass<1.1) & (fwhm_arcsec>0.175) & (mag>18.5) & (mag <= maximum_mag) & (ellip>0.12)
    mask_all = (mask1) | (mask2)
 
    s1 = dist[mask1]
@@ -62,14 +63,14 @@ for i in range(nlens):
    """ Here calculate the weighted number of galaxies, too """
    ''' Here, make a regions file'''
 
-   outfile = 'Cat_lenses/%s_F814W_gals_45.reg' % lensroot[i]
+   outfile = indir+'Cat_lenses/%s_F814W_gals_45.reg' % lensroot[i]
    num.write_regfile(x45,y45,outfile)
 """ 
 Print out the output 
 
 This might also be a good place to save the output and make a regions file
 """
-f = open('Lens Counts/lens.txt','w')
+f = open(indir+'Lens Counts/lens.txt','w')
 f.write('#Lens        N_total  N_wt_r\n')
 f.write('#----------- -------  ------\n')
 for i in range(nlens):

@@ -13,8 +13,9 @@ OK here replace Yan with COSMOS for everything
 # first put all of them in one list for the sums, and one list
 # for the weighted sums
 
+indir = '/mnt/data1/renata/ACS/'
 for i in range(4):
-    name = 'Cosmos_counts/cosmos%s.txt' % i
+    name = indir+'Cosmos_counts/cosmos%s.txt' % i
 
     # gets the data for a given COSMOS list
     count,count_w = n.loadtxt(name,unpack=True,usecols=(1,2))
@@ -26,15 +27,15 @@ for i in range(4):
 
 # means and medians of the entire COSMOS lists
 
-yans_median = n.median(yans)
+#yans_median = n.median(yans)
 yans_mean = n.mean(yans)
 
-yans_weighted_median = n.median(yans_weighted)
+#yans_weighted_median = n.median(yans_weighted)
 yans_weighted_mean = n.mean(yans_weighted)
 
 
 
-f = open('cosmostable.txt','w')
+f = open(indir+'Cosmos_counts/cosmostable.txt','w')
 f.write('%10.3f %10.3f %10.3f %10.3f' %(yans_mean,yans_mean/yans_mean,yans_weighted_mean,yans_weighted_mean/yans_weighted_mean))
 f.close()
 
