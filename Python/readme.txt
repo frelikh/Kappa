@@ -41,3 +41,14 @@ Notes...
 
 6. Yay you're done! Delete the fits files created in (2.) to save space.
    rm GGL*.fits
+
+
+
+
+******
+SA_counts.py and ncounts.py get the unweighted and weighted number counts from the simulation data:
+SA and Guo, respectively.
+They're super slow.
+They store the number counts in a bunch of tables that then make_kappa_hist.py or plot3.py takes
+to compare to the inputted number counts, making a plot of the kappa distribution.
+******

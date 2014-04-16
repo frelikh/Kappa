@@ -29,8 +29,9 @@ for i in range(4):
 
 #yans_median = n.median(yans)
 yans_mean = n.mean(yans)
+yans_median = n.median(yans)
 
-#yans_weighted_median = n.median(yans_weighted)
+yans_weighted_median = n.median(yans_weighted)
 yans_weighted_mean = n.mean(yans_weighted)
 
 
@@ -47,8 +48,8 @@ print yans_mean
 print yans_weighted_median
 print yans_weighted_mean
 '''
-'''
-infile = 'Lens Counts/lens.txt'
+
+infile = indir+'Lens Counts/lens.txt'
 data,data_w = n.loadtxt(infile,unpack=True,usecols=(1,2))
 
 new_lens_mean = data/yans_mean
@@ -57,7 +58,7 @@ new_lens_median = data/yans_median
 new_lens_mean_w = data_w/yans_weighted_mean
 new_lens_median_w = data_w/yans_weighted_median
 
-lensroot = n.loadtxt('lenses_root.list',dtype='S11')
+lensroot = n.loadtxt(indir+'lenses_root.list',dtype='S11')
 nlens = lensroot.size
 
 puppy = input("What is the maximum magnitude?")
@@ -79,4 +80,3 @@ f.write('# -----------      -----------------  ------------------\n')
 for i in range(nlens):
     f.write('%-11s    %10.3f      %10.3f\n' % (lensroot[i],new_lens_mean_w[i],new_lens_median_w[i]))
 f.close()
-'''

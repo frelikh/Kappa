@@ -12,7 +12,7 @@ lens_roots = n.loadtxt(lensroots,dtype='S22')
 yan_mean_unw = n.mean(yan_unw)
 yan_mean_w = n.mean(yan_w)
 
-f = open(indir+'finalcounts.txt','w')
+f = open('finalcounts.txt','w')
 f.write('#Lens       Unweighted Count  Weighted Count\n')
 f.write('#-------------------------------------------\n')
 
