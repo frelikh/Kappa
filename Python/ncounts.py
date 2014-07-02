@@ -129,5 +129,5 @@ for z in range(1024):
           # 4. weighted number count divided by mean
 
     for rat in range(1600):
-       f.write('%8d %8.2f %8.2f %12.4f %12.4f\n' %(rat, x_biggrid[rat], y_biggrid[rat], (ngal_tot[rat] / n.median(ngal_tot)), (ngal_wt_r[rat] / n.median(ngal_wt_r))))
+       f.write('%8d %8.2f %8.2f %12.4f %12.4f\n' %(rat, x_biggrid[rat], y_biggrid[rat], (ngal_tot[rat] / n.mean(ngal_tot)), (ngal_wt_r[rat] / n.mean(ngal_wt_r))))
     f.close()

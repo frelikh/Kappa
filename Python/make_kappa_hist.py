@@ -18,7 +18,7 @@ for i in range(4):
     for j in range(8):
         for k in range(4):
             for l in range(4):
-		print i,j,k,l
+		#print i,j,k,l
                 infile = n.loadtxt('/mnt/data2/renata/Simulations/Tables/table%d%d_%d%d.txt' %(i,j,k,l))
                 kappa_dir = '/mnt/data2/renata/Simulations/Kappa_maps/Plane35/KappasByCenter/'
                 kappa_infile = kappa_dir+'kappas%d%d_%d%d.txt' %(k,l,i,j)
@@ -37,6 +37,8 @@ for i in range(4):
 		u_kappa = n.append(u_kappa,chosen_kappa_u)
                 w_kappa = n.append(w_kappa,chosen_kappa_w)
                 total = n.append(total,kappa)
+                
+                print '%d %d' %(chosen_kappa_u.size, len(u_kappa))
 
 mean_u = n.mean(u_kappa)
 mean_w = n.mean(w_kappa)
@@ -46,7 +48,9 @@ mean_total = n.mean(total)
 plt.figure(1)
 plt.subplot(3,1,1)
 
-n1,bins1,patches1 = plt.hist(u_kappa,50,histtype='step',color='b',normed=1,range=[-0.2,0.3])
+n1,bins1,patches1 = plt.hist(u_kappa,50,histtype='step',color='b',range=[-0.2,0.3])
+#n1,bins1,patches1 = plt.hist(u_kappa,50,histtype='step',color='b',normed=1,range=[-0.2,0.3])
+print n1
 plt.xlabel('Kappa')
 plt.ylabel('Probability')
 plt.axvline(x=mean_u,color='b')
@@ -88,13 +92,5 @@ props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
 # place a text box in upper left in axes coords
 plt.text(0.2, 15, textstr, fontsize=14,
         verticalalignment='top', bbox=props)
-
-
-#plt.subplot(3, 1, 1)
-#plt.plot(ax1,ax2,ax3)
-#plt.axvline(x=mean_u,color='b')
-#plt.axvline(x=mean_w,color='g')
-#plt.axvline(x=mean_total,color='r')
-#plt.title('External Convergence Distribution for B0850')
 
 plt.show()
